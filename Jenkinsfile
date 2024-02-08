@@ -44,16 +44,5 @@ pipeline {
                                       junit(testResults: 'target/surefire-reports/*.xml', skipMarkingBuildUnstable: true, allowEmptyResults : true)
                       }
                  }
-				 }
- 
-     stage('Deploy') {
-                 steps {
-                       script {
- 
-                             sh 'rsync -avz $WORKSPACE/target/GreetingApp-0.0.1-SNAPSHOT.jar jenkins@10.0.30.218:/tmp/'
-                              }
-                        }
-                     }
- 
-}
+       }
 }
