@@ -6,8 +6,9 @@ pipeline {
 		    steps {
 			    script {
 				    sh "rsync -rvz $WORKSPACE /tmp/"
-				    sh "cd /tmp && sudo docker build -t greetingsApp:v1 ."
-				    sh "sudo docker run -it greetingsApp:v1"
+				    sh "cp /tmp/test /new-app"
+				    sh "cd /new-app && docker build -t greetingsApp:v1 ."
+				    sh "cd/new-app && docker run -it greetingsApp:v1"
                       }
                  }
 	 }
